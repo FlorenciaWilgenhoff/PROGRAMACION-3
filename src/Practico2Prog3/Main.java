@@ -19,11 +19,8 @@ public class Main {
 		abb.insertar(nodo5);
 		abb.insertar(nodo6);
 
-		abb.getFrontera(nodo);
-		/*ArrayList fronteraArbol= abb.getFrontera();
-		for(int i=0; i<fronteraArbol.size();i++){
-			System.out.println("Arbol "+fronteraArbol.get(i));
-		}*/
+		abb.getFrontera();
+		
 
 	}
 

@@ -1,12 +1,9 @@
 package Practico2Prog3;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ArbolBinario {
 	Node root;
-	ArrayList <Node>fronteraArbol= new ArrayList<Node>();
-
 
 	public void insertar(Node nodo) {
 		int valor = nodo.getValor();
@@ -16,23 +13,28 @@ public class ArbolBinario {
 			root.insertar(valor);
 		}
 	}
-	public void add(Node nodo){
-		fronteraArbol.add(nodo);
+	
+
+	public ArrayList<Node> getFrontera(){
+		return getHijos(root);
 	}
-	public ArrayList<Node> getFrontera(Node nodo) {
+
+
+	public ArrayList<Node> getHijos(Node nodo) {
+		ArrayList <Node>fronteraArbol= new ArrayList<Node>();
 		if(nodo!=null){
-			if(tengoHijos(nodo)) {
+			if(!tengoHijos(nodo)) {
 				fronteraArbol.add(nodo);
+			} else {
+				if ((nodo.getIzq()!= null)){
+					fronteraArbol.addAll(getHijos(nodo.getIzq()));
+				}
+				if ((nodo.getDer()!= null)){
+					fronteraArbol.addAll(getHijos(nodo.getDer()));
+				}
+
 			}
 		}
-			if ((nodo.getIzq()!= null)){
-				getFrontera(nodo.getIzq());
-			}else{
-				if ((nodo.getDer()!= null)){
-					getFrontera(nodo.getDer());
-				}
-			}
-			
 
 		return fronteraArbol;
 	}
@@ -46,3 +48,4 @@ public class ArbolBinario {
 	}
 
 }
+
