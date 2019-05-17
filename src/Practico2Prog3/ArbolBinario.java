@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class ArbolBinario {
 	Node root;
 
-	public void insertar(Node nodo) {
-		int valor = nodo.getValor();
+	public void insertar(Integer valor) {
 		if(root==null) {
 			root = new Node(valor);
 		}else{
@@ -15,16 +14,16 @@ public class ArbolBinario {
 	}
 	
 
-	public ArrayList<Node> getFrontera(){
+	public ArrayList<Integer> getFrontera(){
 		return getHijos(root);
 	}
 
 
-	public ArrayList<Node> getHijos(Node nodo) {
-		ArrayList <Node>fronteraArbol= new ArrayList<Node>();
+	public ArrayList<Integer> getHijos(Node nodo) {
+		ArrayList <Integer>fronteraArbol= new ArrayList<Integer>();
 		if(nodo!=null){
 			if(!tengoHijos(nodo)) {
-				fronteraArbol.add(nodo);
+				fronteraArbol.add(nodo.getValor());
 			} else {
 				if ((nodo.getIzq()!= null)){
 					fronteraArbol.addAll(getHijos(nodo.getIzq()));

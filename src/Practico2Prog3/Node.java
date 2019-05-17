@@ -13,6 +13,7 @@ public class Node {
 	public Node (int valor){
 		this.valor =  valor;
 	}
+	
 	public void insertar( int valorInsertar) {
 		if(valorInsertar<valor) {
 			if(this.izq==null) {
